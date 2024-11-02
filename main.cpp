@@ -36,7 +36,7 @@ class Object
 {
 public:
     bool marked;  //标记
-    vector<Object*> references;
+    vector<Object*> references;  //关联对象
 
     Object() :marked(false){
         getGC().objects.push_back(this);
@@ -123,7 +123,7 @@ int main(){
 
     gc.removeRoot(nodeA);
     gc.collect();
-    gc.removeRoot(nodeD);  
+    gc.removeRoot(nodeD);  //标记清除
     gc.collect();
     return 0;
 }
